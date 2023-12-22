@@ -14,9 +14,9 @@ done
 if [ -n "${REQUIREMENTS}" ] && [ -f "${GITHUB_WORKSPACE}/${REQUIREMENTS}" ]; then
     pip install -r "${GITHUB_WORKSPACE}/${REQUIREMENTS}"
 else
-    REQUIREMENTS="${GITHUB_WORKSPACE}/requirements.txt"
+    REQUIREMENTS="${GITHUB_WORKSPACE}/requirements.txt --root-user-action=ignore"
     if [ -f "${REQUIREMENTS}" ]; then
-        pip install -r "${REQUIREMENTS}"
+        pip install -r "${REQUIREMENTS} --root-user-action=ignore"
     fi
 fi
 
